@@ -53,12 +53,12 @@ if (usuario === "admin" && contrasenia === contraseniaIngresada) {
 
 /* Tablas de multiplicar */
 console.log("=======");
-console.log("5x1=5");
-console.log("5x2=10");
-console.log("5x3=15");
+console.log("8x1=8");
+console.log("8x2=16");
+console.log("8x3=24");
 
 console.log("=======");
-const numeroAMultiplicar = 90;
+const numeroAMultiplicar = 8;
 for (let tabla = 1; tabla <= 10; tabla++) {
   console.log(
     numeroAMultiplicar + "x" + tabla + "=" + numeroAMultiplicar * tabla
@@ -90,9 +90,102 @@ function suma(numeroUno, numeroDos) {
   console.log(numeroUno + numeroDos);
 }
 
-suma(5); //Esto representa la llamada a mi función
+suma(5, 5); //Esto representa la llamada a mi función
 
 /* Función JS que advierte al usuario que hizo clic donde no debía */
 const advertenciaAlerta = () => {
   alert("Diste clic al botón que no debías 😡");
+};
+
+/* Función que ejecuta la tabla de multiplicar del 10 */
+const funcionMultiplicar10 = () => {
+  const numeroAMultiplicar = 10;
+  for (let tabla = 1; tabla <= 10; tabla++) {
+    console.log(
+      numeroAMultiplicar + "x" + tabla + "=" + numeroAMultiplicar * tabla
+    );
+  }
+};
+
+const funcionMultiplicar08 = () => {
+  const numeroAMultiplicar = 8;
+  for (let tabla = 1; tabla <= 10; tabla++) {
+    console.log(
+      numeroAMultiplicar + "x" + tabla + "=" + numeroAMultiplicar * tabla
+    );
+  }
+};
+
+/* ------------------------------------------------------------------------------- */
+const mascota = {
+  nombre: "Firulais",
+  tieneJuguetes: true,
+  tipoMascota: "Perro",
+  raza: "Pastor Alemán",
+  anioNacimiento: 2023,
+  sexo: "Macho",
+  hobbies: [
+    "jugar la pelota",
+    "Dormir mucho",
+    "Le gusta mojarse en la lluvia ",
+    "correr",
+  ],
+  familia: {
+    madre: "Luna",
+    padre: "Toby",
+  },
+};
+
+/* Función que muestra en consola un objeto de ejemplo */
+const funcionDispararObjetoMuestra = () => {
+  /* Vamos a imprimir en consola el tipo de dato que representa la constante mascota */
+  console.log(typeof mascota);
+  console.log(mascota); //Esto debe hacer que en consola me salga todas las características de la mascota
+  /* ¿Cómo muestro un dato específico? */
+  console.log("El nombre de esta mascota es: " + mascota.nombre);
+  /* ¿Qué tipo de datos es la propiedad tieneJuegues? */
+  const tipoDeValor = typeof mascota.tieneJuguetes;
+  console.log(
+    "El tipo de dato de la propiedad tieneJuegues es: " + tipoDeValor
+  );
+};
+
+/* Función que muestra en consola como funciona una clase */
+const funcionDispararClaseoMuestra = () => {
+  // Clase padre
+
+  class Animal {
+    constructor(nombre) {
+      this.nombre = nombre;
+    }
+
+    hablar(tipoDeRuido) {
+      console.log(this.nombre + tipoDeRuido);
+    }
+  }
+
+  const animal = new Animal("Perro");
+  const animalDos = new Animal("Gato");
+
+  // Imprime: `Animal dice: Jirafa hace un ruido`
+  console.log(`Animal dice: ${animal.hablar("Guauuu guauu")}`);
+  console.log("Animal dice: " + animalDos.hablar("Miauuuuu"));
+
+  // Clase hija, hereda de la clase `Animal`
+
+  class Perro extends Animal {
+    constructor(nombre) {
+      super(nombre);
+    }
+
+    // Sobrecarga del método `hablar`, polimorfismo
+    hablar() {
+      console.log(this.nombre + " ladra.");
+    }
+  }
+
+  const perro = new Perro("Firulais");
+
+  // Imprime: `Perro dice: Firulais ladra`
+  console.log(`Perro dice: ${perro.hablar()}`);
 };
